@@ -87,7 +87,24 @@ for (let restaurant of restaurants) {
 */
 
 // TODO: create objects and put them in an array
+let zoo = {
+	name: "St. Louis Zoo",
+	location: "St. Louis, MO",
+	adultTicketPrice: "FREE!",
+	childTicketPrice: "FREE!",
+	famousFeatures: ["Penguin/Puffin Coast", "The Sea Lion Show", "The Zooline Railroad", "The River's Edge"]
+};
 
+let scienceCenter = {
+	name: "Saint Louis Science Center",
+	location: "St. Louis, MO",
+	adultTicketPrice: "General Admission is FREE!",
+	childTicketPrice: "General Admission is FREE!",
+	famousFeatures: ["OMNIMAX Theater", "McDonnell Planetarium", "The Discovery Room"]
+};
+
+console.log(zoo);
+console.log(scienceCenter);
 /*
 	Loop through the array, then within that for loop, use a for...in loop to grab values from each key and print them to the console. If you come across a key storing an array, print each element in the array instead of the array itself. Remember that you need a new index variable with each nested FOR loop (i, j are common).
 
@@ -95,7 +112,21 @@ for (let restaurant of restaurants) {
 */
 
 // TODO: use nested loops to print values inside objects
+for (let key in zoo) {
+	if (Array.isArray(zoo[key])){
+		for (let i=0; i < zoo[key].length; i++){
+			console.log(zoo[key][i]);
+		}
+	}
+}
 
+for (let newKey in scienceCenter) {
+	if (Array.isArray(scienceCenter[newKey])){
+		for (let j=0; j < scienceCenter[newKey].length; j++){
+			console.log(scienceCenter[newKey][j]);
+		}
+	}
+}
 /*
 	Last task: loop through the outer array and print a single template literal for each attraction using placeholders referencing the object at each index. Here's an example:
 
