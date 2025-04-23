@@ -64,7 +64,11 @@ console.log(appleKey);
 console.log(""); // skip a line in console
  
 // TODO: Use what you've learned about how to access keys and values to loop through the object and print only values which belong to food items that are sides. No need to write this one as a function, just do the loop. Hint 1: you need to check the key names, not the values! Hint 2: Even though they don't look like it in the object, keys are stored as strings.
-
+for (let items in lunchBox) {
+	if (items.includes("side")) {
+		console.log(`\nOne of the sides within my lunchbox is ${lunchBox[items]}.`);
+	}
+}
 
 
 /**** LOOPING THROUGH OBJECTS WITH ARRAYS AS VALUES ****/
@@ -95,14 +99,27 @@ for (let packageType in pantry) {
 console.log(""); // skip a line in console
 
 // TODO: Write a function that takes in an index number, prints "Items at index (x):" and then prints the element at that index of each array as you loop through the object. Use the escape character \t to indent each item for that index. If the array doesn't have anything at that index, it should be skipped without throwing an error. (Note: you don't need nested loops for this one.)
-
+function itemsAtIdx(index){
+	for (let key in pantry){
+		if (pantry[key][index]){
+			console.log(`Items at ${index} is \t${pantry[key][index]}`);
+		}
+	}
+}
 
 // TODO: Call the function above at 2 or 3 different index numbers and check to see the results are what you expect.
-
-
+itemsAtIdx(0);
+itemsAtIdx(1);
+itemsAtIdx(4);
 // TODO: Now write a function that takes a package type as a parameter and then prints all the items of the array only for that package type. This time, print "Items that are (type):" and then put a "- " in front of each item from that array. (Hint: if you already know the name of the package type, you don't need a for...in loop to check every property!)
-
-
+function printPackageType(pkg){
+	if (pantry[pkg]){
+	console.log(`Items that are ${pkg}`)
+	for (let key of pantry[pkg]){
+		console.log(- ${key})
+	}
+}
+}
 // TODO: Call the function for a couple of the key names in the object and check the results. Remember that JavaScript stores object keys as strings, so you'll need to pass them in that way.
 
 
