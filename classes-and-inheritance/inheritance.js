@@ -231,5 +231,39 @@ console.log(cokeZero instanceof Juice);
     Include examples that use optional parameters and some that don't.
     Print the objects and call methods on a few of them
 */
+class Milk extends Beverage {
+    constructor(name, ounces, container, source, isNonDairy = false, flavoring = null){
+        super(name, ounces, container);
+        this.source = source;
+        this.isNonDairy = isNonDairy;
+        this.flavoring = flavoring;
+    }
 
+    describe(){
+        super.describe();
+        console.log(`I am enjoying a nice cold glass of ${this.source} milk!`);
+    }
+}
+
+class ChocolateMilk extends Milk {
+    constructor(name, ounces, container, source, isNonDairy = false, flavoring = null, toppings = []){
+        super(name, ounces, container, source, isNonDairy = false, flavoring = null);
+        this.toppings = toppings;
+    }
+
+    describe(){
+        super.describe();
+        console.log(`My milk is ${this.flavoring}!`);
+    }
+}
+
+let chocolateMilk = new Milk("Chocolate Milk", 8, "carton", "dairy", false, "Chocolate");
+console.log(chocolateMilk);
+chocolateMilk.recycle();
+chocolateMilk.describe();
+
+let dessert = new ChocolateMilk("Chocolate Milk Dessert", 12, "glass", false, "dairy", false, "Chocolate", ["whipped cream", "chocolate shavings", "cherry"]);
+console.log(dessert);
+dessert.recycle();
+dessert.describe();
 
